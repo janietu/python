@@ -1,0 +1,22 @@
+very slow
+
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        slen=0
+        tlen=0
+        if len(s)==0: 
+            return True
+        
+        if len(s)>len(t):
+            return False
+        
+        while(slen<len(s) and tlen<len(t)):
+            if s[slen]==t[tlen]:
+                slen+=1    
+            tlen+=1
+            
+            if slen==len(s):
+                return True
+        return False
+            
+        
