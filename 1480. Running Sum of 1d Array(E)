@@ -1,0 +1,12 @@
+class Solution:
+     def runningSum(self, nums: List[int]) -> List[int]:
+        class Solution:
+    def runningSum(self, nums: List[int]) -> List[int]:
+        tmp_nums=[]
+        sum=0
+        for i in nums:
+            sum+=i
+            tmp_nums.append(sum)
+        
+        return tmp_nums
+            
