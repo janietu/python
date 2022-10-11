@@ -20,3 +20,20 @@ class Solution:
         return False
             
         
+
+
+一個一個確認s的字元是否在t內
+不在就回傳False
+在的話就找出其位置(x),將t變為x後的字串
+因為要防止元素都在t內,但順序不一樣的可能
+最後執行時間32ms(faster than 94.61%)
+
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        for ss in s:
+            if ss in t:
+                i=t.index(ss)
+                t = t[i+1:]
+            else: 
+                return False
+        return True
