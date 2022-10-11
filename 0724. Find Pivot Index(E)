@@ -1,0 +1,13 @@
+class Solution:
+    def pivotIndex(self, nums: List[int]) -> int:
+        total=0
+        tmp_num=[]
+        for n in nums:
+            total+=n
+            tmp_num.append(total)
+        for i in range(len(nums)):
+            left=tmp_num[i]-nums[i]
+            right=total-nums[i]-left
+            if right==left:
+                return i
+        return -1
