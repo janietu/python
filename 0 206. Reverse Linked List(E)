@@ -1,0 +1,42 @@
+00206. Reverse Linked List
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        front = ListNode()
+        back = ListNode()
+        front = None
+        while(head):
+          #  if head.next:
+                back = head.next
+                head.next = front
+                front = head
+                head = back
+           # else: 
+        return front
+                
+                
+recusive
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        def recursive(Newhead, head):
+            
+            if head:
+            
+                Next = head.next
+                head.next = Newhead
+                Newhead = head
+                head = Next
+            
+                return recursive(Newhead, head)
+            else:
+                return Newhead
+        return recursive(None, head)
