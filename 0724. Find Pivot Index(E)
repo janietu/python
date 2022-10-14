@@ -11,3 +11,24 @@ class Solution:
             if right==left:
                 return i
         return -1
+        
+        
+        
+   ------------------------------------
+   class Solution(object):
+    def pivotIndex(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        total = sum(nums)
+        
+        running_nums = []
+        for i in range(len(nums)):
+            running_nums.append(sum(nums[:i+1]))
+        
+        for i in range(len(nums)):
+            if total - nums[i] == 2* (running_nums[i]-nums[i]):
+                return i
+        return -1
+        
