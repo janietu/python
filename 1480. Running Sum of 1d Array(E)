@@ -10,3 +10,17 @@ class Solution:
         
         return tmp_nums
             
+---------easier way ------------------------------------------------
+class Solution(object):
+    def runningSum(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        sumnum = []
+        for n in range(len(nums)):
+            sumnum.append(sum(nums[:n+1]))
+        return sumnum
+    
+
+    
