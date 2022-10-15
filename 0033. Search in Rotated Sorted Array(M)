@@ -1,0 +1,15 @@
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        low = 0
+        high = len(nums)
+        
+        while low<high:
+            check = int(low+(high-low)/2)
+            if target == nums[check]:
+                return check
+            elif target in nums[low:check]:
+                high = check
+            elif target in nums[check+1:high]:
+                low = check+1
+            else:
+                return -1
