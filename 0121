@@ -1,0 +1,15 @@
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        earn=0 
+        bestbuy = prices[0]
+        prices = prices[1:]
+        for p in prices:
+            curr = p
+            if earn < (curr-bestbuy):
+                earn = curr-bestbuy
+            
+            if p < bestbuy:
+                bestbuy = p
+            
+        return earn
+            
