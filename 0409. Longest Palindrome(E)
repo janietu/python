@@ -1,0 +1,41 @@
+class Solution:
+    def longestPalindrome(self, s: str) -> int:
+        dir = {}
+        for ss in s:
+            if ss in dir:
+                x = int(dir[ss])
+                dir[ss] = x+1
+            else:
+                dir[ss]=1
+        print(dir)
+        n=0
+        odd=0
+        for c in dir:
+            if dir[c] %2:
+                n += dir[c]-1
+                odd+=1
+            else:
+                n += dir[c]
+        if odd:
+            return n +1
+        else: 
+            return n
+            
+  ------- ------- ------- ------- ------- ------- ------- -------  -------
+            class Solution:
+    def longestPalindrome(self, s: str) -> int:
+        count = Counter(s)
+        odd = 0 
+        number = 0
+        for c in count:
+            if count[c]%2:
+                number += count[c]-1
+                odd = 1
+            else: 
+                number += count[c]
+        if odd:
+            return number +1
+        else: 
+            return number
+            
+  
