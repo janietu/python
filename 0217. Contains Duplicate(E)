@@ -1,0 +1,21 @@
+1. dir 
+2. set
+
+
+1.
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        mapping = {}
+        for n in nums:
+            if n in mapping:
+                return True
+            else:
+                mapping[n]=1
+        return False
+        
+        
+        
+2.
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        return len(set(nums))!=len(nums)
