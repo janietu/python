@@ -1,0 +1,51 @@
+算出除了自己以外的其他數字的乘  (不能用除法
+ex  1, 2, 3, 4
+--> 24, 12, 8, 6
+24 is 2*3*4
+12 is 1*3*4
+8 is 1*2*4
+
+input    1  2  3  4
+prefix   1, 2, 6, 24 -->    1 1*2 1*2*3 1*2*3*4
+postfix  24 24 12 4  <--  從後往前算
+
+example 位置3 的答案是前面 12的 總乘  ＊  後面4的總乘
+                     =prefix 2       *  postfix  4   
+
+-------------------
+更精簡  不要有prefix postfix array 省space
+先把應該要的prefix存在對的位置  
+res[3] = prefix[2] 之類的
+
+prefix=1 當作前面有個1
+for i in range(len(nums)):
+  res[i] = prefix
+  prefix*=nums[i] 
+  
+然後再去做postfix
+        postfix=1
+        for i in range(len(nums)-1,-1,-1):
+            res[i] *= postfix
+            postfix *=nums[i]
+            
+            
+            
+            
+            
+========================================
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        res=[1]*len(nums)
+        print(res)
+        
+        prefix=1
+        for i in range(len(nums)):
+            res[i] = prefix
+            prefix *=nums[i]
+        
+        postfix=1
+        for i in range(len(nums)-1,-1,-1):
+            res[i] *= postfix
+            postfix *=nums[i]
+        
+        return res
