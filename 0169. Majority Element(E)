@@ -16,3 +16,23 @@ class Solution:
                 res = nums[i]
         
         return res
+
+
+---------------------
+no sort
+
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        dir={}
+        max=0
+        tmp=0
+        ans = nums[0]
+        for i in nums:
+            if i in dir:
+                dir[i]+=1
+                if max < dir[i]:
+                    max = dir[i]
+                    ans =i
+            else:
+                dir[i]=1
+        return ans
